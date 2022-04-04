@@ -18,7 +18,7 @@ imageShow=st.empty()
 fileShow=st.empty()
 #
 def get_prediction_pheno(data):
-  topTitle.title("Processing user data")
+  topTitle.title("Processing User Data")
   url = 'https://askai.aiclub.world/c22776b6-21e7-4a55-bbf4-444e6fa6c7b5'
   r = requests.post(url, data=json.dumps(data))
   response = getattr(r,'_content').decode("utf-8")
@@ -68,16 +68,16 @@ def combineResults(r1,c1,c2,r2,i1,i2):
     resp="Both AIs agree Conclusion 2"
   else: 
     if(c1+i1>c2+i2):
-      resp="Disagreement, but majority favors 1"
+      resp="Majority favors 1"
     else:
-      resp="Disagreement, but majority favors 2"
+      resp="Majority favors 2"
   topTitle.title(resp)
 #
 def uploadFiles():
   global uploadedCsvFile,uploadedImageFile
   topTitle.title("Waiting for patient information")
-  uploadedCsvFile=st.sidebar.file_uploader("Choose patient record")
-  uploadedImageFile=st.sidebar.file_uploader("Choose MRI file")
+  uploadedCsvFile=st.sidebar.file_uploader("Choose Patient Record")
+  uploadedImageFile=st.sidebar.file_uploader("Choose MRI File")
   if uploadedCsvFile is not None:
     df = pd.read_csv(uploadedCsvFile)
     records= df.to_dict(orient='records')
