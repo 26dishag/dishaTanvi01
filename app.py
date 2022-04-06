@@ -63,19 +63,19 @@ def combineResults(r1,c1,c2,r2,i1,i2):
   s=f'Combined results: {r1},{c1},{c2},{r2},{i1},{i2}'
   print("Combined results: ",r1,c1,c2,r2,i1,i2)
   if(r1==1 and r2==1):
-    resp="Both AIs agree Conclusion 1"
+    resp="1: Our AI Predicts a Very High Chance of Autism"
   elif(r1==2 and r2==2):
-    resp="Both AIs agree Conclusion 2"
+    resp="2: Our AI Predicts a Very Low Chance of Autism"
   else: 
     if(c1+i1>c2+i2):
-      resp="Majority favors 1"
+      resp="Our AI Predicts a Strong Possibility of Autism. Further Testing is Recommended."
     else:
-      resp="Majority favors 2"
+      resp="Our AI Predicts a Low Possibility of Autism. Further Testing is Recommended"
   topTitle.title(resp)
 #
 def uploadFiles():
   global uploadedCsvFile,uploadedImageFile
-  topTitle.title("Waiting for patient information")
+  topTitle.title("Please Input Patient Information")
   uploadedCsvFile=st.sidebar.file_uploader("Choose Patient Record")
   uploadedImageFile=st.sidebar.file_uploader("Choose MRI File")
   if uploadedCsvFile is not None:
